@@ -1,0 +1,70 @@
+<table class="table text-center  table-dark table-striped table-hover table-bordered table-primary align-middle">
+    <thead class="table-light">
+        <caption>
+            Departments
+        </caption>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Number of students</th>
+            <th>Location</th>
+            <th>Details</th>
+            <th>Edit</th>
+            <th>Delete</th>
+        </tr>
+    </thead>
+    <tbody class="table-group-divider">
+        <tr *ngFor="let dept of departments" class="align-middle">
+            <td>{{dept.id}}</td>
+            <td>{{dept.name}}</td>
+            <td>{{dept.studentNo}}</td>
+            <td>{{dept.Location}}</td>
+            <td><input type="button" class="btn btn-info  text-white " (click)="showDetails(dept.id);mode='details'"
+                    value="Details" /></td>
+            <td><input type="button" class="btn btn-success text-white " (click)="editDeptufn(dept.id);mode='edit';"
+                    value="Edit" />
+            <td><input type="button" class="btn btn-danger text-white " (click)="deletedept(dept.id)" value="Delete" />
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<div *ngIf="mode=='add'">
+
+    <h4 class="alert-info alert">Add new department</h4>
+    <label for="id" class="ms-3">ID:</label>
+    <input type="text" class="form-control ms-3 w-75" id="id" value="{{newdept.id}}" readonly>
+    <label for="name" class="ms-3">Name:</label>
+    <input type="text" class="form-control ms-3 w-75" id="name" [(ngModel)]="newdept.name" required>
+    <label for="stdno" class="ms-3">Number of students:</label>
+    <input type="number" class="form-control ms-3 w-75" id="stdno" [(ngModel)]="newdept.studentNo" required>
+    <label for="Location" class="ms-3">Location:</label>
+    <input type="text" class="form-control ms-3 w-75" id="Location" [(ngModel)]="newdept.Location" required>
+</div>
+<div>
+    <button class="w-25 btn btn-primary ms-3 my-3" (click)="addDepartment()">Add Department</button>
+</div>
+
+<div *ngIf="mode=='details'">
+    <h4 class="alert-info alert">Department {{deptdetails.name}} details</h4>
+    <label for="id" class="ms-3">ID:</label>
+    <input type="text" class="form-control ms-3 w-75" id="id" value="{{deptdetails.id}}" readonly>
+    <label for="name" class="ms-3">Name:</label>
+    <input type="text" class="form-control ms-3 w-75" id="name" [(ngModel)]="deptdetails.name" readonly>
+    <label for="stdno" class="ms-3">Number of students:</label>
+    <input type="number" class="form-control ms-3 w-75" id="stdno" [(ngModel)]="deptdetails.studentNo" readonly>
+    <label for="Location" class="ms-3">Location:</label>
+    <input type="text" class="form-control ms-3 w-75 mb-3" id="Location" [(ngModel)]="deptdetails.Location" readonly>
+</div>
+<div *ngIf="mode=='edit'">
+    <h4 class="alert-warning  alert">Edit department</h4>
+    <label for="id" class="ms-3">ID:</label>
+    <input type="text" class="form-control ms-3 w-75" id="id" value="{{editdept.id}}" readonly>
+    <label for="name" class="ms-3">Name:</label>
+    <input type="text" class="form-control ms-3 w-75" id="name" [(ngModel)]="editdept.name" required>
+    <label for="stdno" class="ms-3">Number of students:</label>
+    <input type="number" class="form-control ms-3 w-75" id="stdno" [(ngModel)]="editdept.studentNo" required>
+    <label for="Location" class="ms-3">Location:</label>
+    <input type="text" class="form-control ms-3 w-75" id="Location" [(ngModel)]="editdept.Location" required>
+    <button class="w-25 btn btn-primary ms-3 my-3" (click)="updateDept(0)">Update Department</button>
+</div>
