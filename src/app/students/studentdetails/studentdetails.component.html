@@ -1,0 +1,7 @@
+<h4 class="alert-info alert">Student {{studentdetails.name}} details</h4>
+<label for="id" class="ms-3">ID:</label>
+<input type="text" class="form-control ms-3 w-75" id="id" value="{{studentdetails.id}}" readonly>
+<label for="name" class="ms-3">Name:</label>
+<input type="text" class="form-control ms-3 w-75" id="name" [(ngModel)]="studentdetails.name" readonly>
+<label for="age" class="ms-3">Age:</label>
+<input type="number" class="form-control ms-3 w-75" id="age" [(ngModel)]="studentdetails.age" readonly>

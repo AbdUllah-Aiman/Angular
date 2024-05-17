@@ -1,3 +1,4 @@
-table,div{
-    background-color: lightgray;
+table,div,caption{
+    background-color: lightskyblue;
+    font-size: large;
 }

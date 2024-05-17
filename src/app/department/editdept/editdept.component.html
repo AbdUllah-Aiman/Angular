@@ -1,0 +1,10 @@
+<h4 class="alert-warning  alert">Edit department</h4>
+<label for="id" class="ms-3">ID:</label>
+<input type="text" class="form-control ms-3 w-75" id="id" value="{{editdept.id}}" readonly>
+<label for="name" class="ms-3">Name:</label>
+<input type="text" class="form-control ms-3 w-75" id="name" [(ngModel)]="editdept.name" required>
+<label for="stdno" class="ms-3">Number of students:</label>
+<input type="number" class="form-control ms-3 w-75" id="stdno" [(ngModel)]="editdept.studentNo" required>
+<label for="Location" class="ms-3">Location:</label>
+<input type="text" class="form-control ms-3 w-75" id="Location" [(ngModel)]="editdept.Location" required>
+<button class="w-25 btn btn-primary ms-3 my-3" (click)="editDept()">Update Department</button>

@@ -1,0 +1,10 @@
+<div>
+    <h4 class="alert-info alert">Add new Student</h4>
+    <label for="id" class="ms-3">ID:</label>
+    <input type="text" class="form-control ms-3 w-75" id="id" value="{{newstudent.id}}" readonly>
+    <label for="name" class="ms-3">Name:</label>
+    <input type="text" class="form-control ms-3 w-75" id="name" [(ngModel)]="newstudent.name" required>
+    <label for="age" class="ms-3">Age:</label>
+    <input type="number" class="form-control ms-3 w-75" id="age" [(ngModel)]="newstudent.age" required>
+</div>
+<button class="w-25 btn btn-primary ms-3 mt-3" (click)="addStudent()">Add Student</button>
