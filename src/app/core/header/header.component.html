@@ -1,14 +1,48 @@
 <ul class="nav nav-tabs bg-light" id="myTab" role="tablist">
-    <li class="nav-item" role="presentation">
-      <button class="nav-link" id="home-tab" data-bs-toggle="tab" data-bs-target="#home" type="button" role="tab"
-        aria-controls="home" aria-selected="true" [routerLink]="['/students']"  >
-        Students
-      </button>
-    </li>
-    <li class="nav-item" role="presentation">
-      <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile" type="button" role="tab"
-        aria-controls="profile" aria-selected="false" [routerLink]="['/departments']">
-        Departments
-      </button>
-    </li>
-  </ul>
+  <li class="nav-item" role="presentation">
+    <button class="nav-link" id="home-tab" data-bs-toggle="tab" data-bs-target="#home" type="button" role="tab"
+      aria-controls="home" aria-selected="true" [routerLink]="['/home']">
+      Home
+    </button>
+  </li>
+  @if(accountServie.isLogged==false){
+  <li class="nav-item" role="presentation">
+    <button class="nav-link" id="login-tab" data-bs-toggle="tab" data-bs-target="#home" type="button" role="tab"
+      aria-controls="home" aria-selected="true" [routerLink]="['/login']">
+      Login
+    </button>
+  </li>
+  }@else{
+  <li class="nav-item" role="presentation">
+    <button class="nav-link" id="students-tab" data-bs-toggle="tab" data-bs-target="#home" type="button" role="tab"
+      aria-controls="home" aria-selected="true" [routerLink]="['/students']">
+      Students
+    </button>
+  </li>
+  <li class="nav-item" role="presentation">
+    <button class="nav-link" id="Departments-tab" data-bs-toggle="tab" data-bs-target="#profile" type="button"
+      role="tab" aria-controls="profile" aria-selected="false" [routerLink]="['/departments']">
+      Departments
+    </button>
+  </li>
+  <li class="nav-item" role="presentation">
+    <button class="nav-link" id="logout-tab" data-bs-toggle="tab" data-bs-target="#profile" type="button" role="tab"
+      aria-controls="profile" (click)="accountServie.isLogged=false" aria-selected="false"
+      [routerLink]="['/departments']">
+      Logout
+    </button>
+  </li>
+  }
+  <li class="nav-item" role="presentation">
+    <button class="nav-link" id="About-tab" data-bs-toggle="tab" data-bs-target="#profile" type="button" role="tab"
+      aria-controls="profile" aria-selected="false" [routerLink]="['/about']">
+      About
+    </button>
+  </li>
+  <li class="nav-item" role="presentation">
+    <button class="nav-link" id="Contact-tab" data-bs-toggle="tab" data-bs-target="#profile" type="button" role="tab"
+      aria-controls="profile" aria-selected="false" [routerLink]="['/contact']">
+      Contact
+    </button>
+  </li>
+</ul>

@@ -1,15 +1,10 @@
-import {
-  Component,
-  Input,
-  OnChanges,
-  OnInit,
-  SimpleChanges,
-  input,
-} from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Student } from '../../models/student';
 import { StudentService } from '../../services/student.service';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { ActivatedRoute } from '@angular/router';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-studentdetails',
@@ -18,14 +13,21 @@ import { FormsModule } from '@angular/forms';
   templateUrl: './studentdetails.component.html',
   styleUrl: './studentdetails.component.css',
 })
-export class StudentdetailsComponent implements OnChanges {
-  constructor(private service: StudentService) {}
+export class StudentdetailsComponent implements OnInit, OnDestroy {
+  constructor(
+    private service: StudentService,
+    private activatedRoute: ActivatedRoute
+  ) {}
+  studentdetails: Student | null = null;
 
-  ngOnChanges(changes: SimpleChanges): void {
-    this.studentdetails = this.service.getById(this.studentid) ?? new Student(0, '', 0);
+  sub: Subscription | null = null;
+  ngOnDestroy(): void {
+    this.sub?.unsubscribe();
   }
-  
-  @Input() studentid: number = 0;
-  
-  studentdetails: Student = new Student(0, '', 0);
+
+  ngOnInit(): void {
+    this.sub = this.activatedRoute.params.subscribe((params) => {
+      this.studentdetails = this.service.getById(params['id']) ?? null;
+    });
+  }
 }

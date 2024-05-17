@@ -1,3 +1,4 @@
+<button class="w-25 btn btn-primary ms-3 my-2" [routerLink]="['/departments/add']">Add Department</button>
 <table class="table text-center  table-dark table-striped table-hover table-bordered table-primary align-middle">
     <thead class="table-light">
         <caption>
@@ -19,9 +20,9 @@
             <td>{{dept.name}}</td>
             <td>{{dept.studentNo}}</td>
             <td>{{dept.Location}}</td>
-            <td><input type="button" class="btn btn-info  text-white " (click)="changeId(dept.id);mode='details'"
+            <td><input type="button" class="btn btn-info  text-white " [routerLink]="['/departments/details',dept.id]"
                     value="Details" /></td>
-            <td><input type="button" class="btn btn-success text-white " (click)="changeId(dept.id);mode='edit';"
+            <td><input type="button" class="btn btn-success text-white " [routerLink]="['/departments/edit',dept.id]"
                     value="Edit" />
             <td><input type="button" class="btn btn-danger text-white " (click)="deletedept(dept.id)" value="Delete" />
             </td>
@@ -29,16 +30,4 @@
     </tbody>
 </table>
 
-<div *ngIf="mode=='add'">
-    <app-adddept></app-adddept>
-</div>
-<div *ngIf="mode!='add'">
-    <button class="w-25 btn btn-primary ms-3 my-2" (click)="addClicked()">Add Department</button>
-</div>
-
-<div *ngIf="mode=='details'" class="my-3">
-    <app-deptdetails [deptid]="dept_id"></app-deptdetails>
-</div>
-<div *ngIf="mode=='edit'">
-    <app-editdept [deptid]="dept_id"></app-editdept>
-</div>
+<router-outlet></router-outlet>

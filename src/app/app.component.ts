@@ -1,8 +1,6 @@
 import { Component } from '@angular/core';
-import { RouterLink, RouterOutlet } from '@angular/router';
-import { StudentComponent } from './student/student.component';
+import { RouterOutlet } from '@angular/router';
 import { FormsModule } from '@angular/forms';
-import { DepartmentComponent } from './department/department.component';
 import { HeaderComponent } from './core/header/header.component';
 import { FooterComponent } from './core/footer/footer.component';
 

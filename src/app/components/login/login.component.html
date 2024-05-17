@@ -1,0 +1,14 @@
+<div class="mb-3">
+    <label for="userName" class="form-label">User Name</label>
+    <input type="text" class="form-control" [(ngModel)]="userName" id="userName" aria-describedby="helpId"
+        placeholder="UserName" (keyup.enter)="login()" />
+</div>
+<div class="mb-3">
+    <label for="pass" class="form-label">Password</label>
+    <input type="password" [(ngModel)]="password" class="form-control" id="pass" placeholder=""
+        (keyup.enter)="login()" />
+</div>
+<button (click)="login()" class="btn btn-primary btn-lg ">Login</button>
+<div *ngIf="state==false" class="alert alert-danger ">
+    Wrong username or password
+</div>

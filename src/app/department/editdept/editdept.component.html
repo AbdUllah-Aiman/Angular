@@ -1,3 +1,7 @@
+@if(editdept==null)
+{
+<div class="alert alert-warning mt-3 fs-4">No departments with that id!</div>
+}@else {
 <h4 class="alert-warning  alert">Edit department</h4>
 <label for="id" class="ms-3">ID:</label>
 <input type="text" class="form-control ms-3 w-75" id="id" value="{{editdept.id}}" readonly>
@@ -7,4 +11,4 @@
 <input type="number" class="form-control ms-3 w-75" id="stdno" [(ngModel)]="editdept.studentNo" required>
 <label for="Location" class="ms-3">Location:</label>
 <input type="text" class="form-control ms-3 w-75" id="Location" [(ngModel)]="editdept.Location" required>
-<button class="w-25 btn btn-primary ms-3 my-3" (click)="editDept()">Update Department</button>
+<button class="w-25 btn btn-primary ms-3 my-3" (click)="editDept()">Update Department</button>}
