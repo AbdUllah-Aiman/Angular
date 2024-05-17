@@ -25,6 +25,9 @@
             <td><input type="button" class="btn btn-danger text-white " (click)="deletestudent(std.id)"
                     value="Delete" /></td>
         </tr>
+            <tr *ngIf="students.length==0">
+                <td colspan="6">No students found</td>
+            </tr>
     </tbody>
 </table>
 
